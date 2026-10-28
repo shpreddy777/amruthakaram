@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Amrutha Karam | A Sweet Taste of Tradition</title>
+  
+  <!-- Google Fonts: Noto Sans Telugu & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- ప్యూర్ ఇన్-బిల్ట్ CSS: బయటి లింకుల అవసరం లేదు, ఎప్పటికీ బ్రేక్ అవ్వదు -->
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Noto Sans Telugu', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #FAF6EF;
+      color: #2A1115;
+      line-height: 1.5;
+      padding-bottom: 95px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .num {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    button {
+      cursor: pointer;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-family: inherit;
+    }
+
+    /* 1. టాప్ బార్ */
+    .top-bar {
+      background-color: #5C1D24;
+      color: #FAF6EF;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 9px 12px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.12);
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #D4AF37;
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    /* 2. హెడర్ */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background-color: rgba(250, 246, 239, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 2px solid #E2D5BE;
+      height: 64px;
+      padding: 0 14px;
+      display: flex;
+      align-items: center;
+    }
+    .header-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 50px !important;
+      height: 50px !important;
+      max-width: 50px !important;
+      max-height: 50px !important;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #5C1D24;
+      background-color: #ffffff;
+      flex-shrink: 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    }
+    .brand-title {
+      color: #5C1D24;
+      font-size: 19px;
+      font-weight: 900;
+      line-height: 1.1;
+      white-space: nowrap;
+      letter-spacing: -0.3px;
+    }
+    .tagline {
+      color: #853600;
+      font-size: 11px;
+      font-weight: 800;
+      margin-top: 2px;
+      white-space: nowrap;
+      line-height: 1.2;
+    }
+
+    /* 3. కంటైనర్ & హీరో */
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 14px;
+    }
+    .pillars-row {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin: 14px 0 12px 0;
+    }
+    .pillar-tag {
+      background-color: #F2E5E7;
+      color: #5C1D24;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      border: 1px solid rgba(92, 29, 36, 0.2);
+    }
+    .hero-box {
+      width: 100%;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+      border: 4px solid #ffffff;
+      background-color: #EAE0D0;
+    }
+    .hero-img {
+      width: 100% !important;
+      height: auto !important;
+      display: block;
+      object-fit: cover;
+      max-height: 400px;
+    }
+
+    /* 4. ప్రొడక్ట్ కార్డ్స్ */
+    .section-title-wrap {
+      text-align: center;
+      margin: 18px 0 14px 0;
+    }
+    .cat-badge {
+      display: inline-block;
+      background-color: #5C1D24;
+      color: #D4AF37;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 9999px;
+    }
+    .main-heading {
+      color: #5C1D24;
+      font-size: 24px;
+      font-weight: 900;
+      margin-top: 4px;
+    }
+    .product-card {
+      background-color: #ffffff;
+      border: 2px solid #E8DAC5;
+      border-radius: 22px;
+      padding: 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+    .prod-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+    .prod-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #2A1115;
+      line-height: 1.25;
+    }
+    .prod-sub {
+      font-size: 11px;
+      color: #6B7280;
+      font-weight: 500;
+      margin-top: 2px;
+    }
+    .price-box {
+      text-align: right;
+    }
+    .price-val {
+      font-size: 18px;
+      font-weight: 800;
+      color: #5C1D24;
+    }
+    .price-unit {
+      font-size: 10px;
+      color: #6B7280;
+      font-weight: 700;
+    }
+    .desc-box {
+      background-color: #FAF4EB;
+      border: 1px solid #EADBCC;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #5C1D24;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .size-picker {
+      background-color: #FAF6EF;
+      border: 1px solid #E6DAC3;
+      border-radius: 14px;
+      padding: 10px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .size-lbl {
+      font-size: 11px;
+      font-weight: 700;
+      color: #7A4048;
+      display: block;
+    }
+    .size-val {
+      font-size: 13px;
+      font-weight: 800;
+      color: #5C1D24;
+    }
+    .qty-counter {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      border: 1px solid #D5C5AC;
+      border-radius: 10px;
+      padding: 2px 4px;
+      gap: 6px;
+    }
+    .qty-btn {
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: #5C1D24;
+      font-size: 16px;
+      border-radius: 6px;
+    }
+    .qty-num {
+      font-size: 14px;
+      font-weight: 800;
+      color: #2A1115;
+      min-width: 14px;
+      text-align: center;
+    }
+
+    /* 5. ఆర్డర్ సమ్మరీ & వాట్సాప్ బటన్ */
+    .summary-card {
+      background-color: #ffffff;
+      border: 2px solid rgba(92, 29, 36, 0.25);
+      border-radius: 22px;
+      padding: 16px;
+      margin-top: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 10px;
+      margin-bottom: 8px;
+      border-bottom: 1px solid #F3EBDD;
+      font-size: 14px;
+    }
+    .summary-grand {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 15px;
+      font-weight: 800;
+      color: #2A1115;
+      margin-bottom: 14px;
+    }
+    .grand-total-val {
+      font-size: 22px;
+      font-weight: 900;
+      color: #5C1D24;
+    }
+    .btn-wa-order {
+      width: 100%;
+      border: 2px solid #25D366;
+      color: #0f7a37;
+      background-color: #ffffff;
+      font-weight: 900;
+      padding: 14px;
+      border-radius: 16px;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+      box-shadow: 0 2px 6px rgba(37, 211, 102, 0.12);
+    }
+    .btn-wa-order:active {
+      transform: scale(0.98);
+      background-color: rgba(37, 211, 102, 0.08);
+    }
+
+    /* 6. కథనం */
+    .story-card {
+      background-color: #F5EDE1;
+      border: 2px solid #DFCDB3;
+      border-radius: 22px;
+      padding: 22px 16px;
+      text-align: center;
+      margin: 22px 0 16px 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .story-quote {
+      background: #ffffff;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid #DFCDB3;
+      font-weight: 800;
+      color: #5C1D24;
+      font-size: 13.5px;
+      line-height: 1.45;
+      margin: 12px 0;
+    }
+    .story-body {
+      font-size: 13px;
+      color: #4A2027;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+    .story-body p {
+      margin-bottom: 10px;
+    }
+
+    /* 7. ఫూటర్ */
+    .footer {
+      background-color: #5C1D24;
+      color: #FAF6EF;
+      padding: 20px 14px 24px 14px;
+      text-align: center;
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .footer-brand {
+      color: #D4AF37;
+      font-size: 17px;
+      font-weight: 900;
+      margin-bottom: 3px;
+    }
+    .footer-text {
+      font-size: 12px;
+      color: #EADCD3;
+      margin-bottom: 3px;
+    }
+    .footer-copy {
+      font-size: 10px;
+      color: #CDB7AB;
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+
+    /* 8. ఫ్లోటింగ్ బటన్లు */
+    .floating-wa-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 16px;
+      z-index: 50;
+      width: 52px;
+      height: 52px;
+      background-color: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      border: 2.5px solid #ffffff;
+      padding: 12px;
+      text-decoration: none;
+    }
+    .floating-wa-btn svg {
+      width: 100%;
+      height: 100%;
+      fill: #ffffff;
+    }
+    .floating-lang-bar {
+      position: fixed;
+      bottom: 20px;
+      right: 16px;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border: 2px solid #5C1D24;
+      border-radius: 9999px;
+      padding: 3px 4px;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+    .lang-btn {
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 800;
+      color: #5C1D24;
+      transition: all 0.15s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. టాప్ బార్: 12 గంటల హామీ -->
+  <div class="top-bar">
+    <span class="pulse-dot"></span>
+    <span id="txt-topbar">⚡ Prepared fresh only after your order — Dispatched in 12 hours!</span>
+  </div>
+
+  <!-- 2. హెడర్: లాంగ్వేజ్ బటన్ లేకుండా పూర్తి వెడల్పుతో -->
+  <header class="header">
+    <div class="header-inner">
+      <img 
+        src="logo.png" 
+        alt="Amrutha Karam" 
+        class="logo-img"
+        onerror="this.src='https://placehold.co/120x120/5C1D24/FAF6EF?text=Logo'; this.onerror=null;"
+      >
+      <div style="min-width: 0; flex: 1;">
+        <h1 id="txt-brandname" class="brand-title">Amrutha Karam</h1>
+        <p id="txt-tagline" class="tagline">A Sweet Taste of Tradition</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. హీరో సెక్షన్ -->
+  <div class="container">
+    
+    <!-- 3 మూల స్తంభాలు -->
+    <div class="pillars-row">
+      <span class="pillar-tag" id="pillar-1">🌿 Purity</span>
+      <span class="pillar-tag" id="pillar-2">🌾 Natural</span>
+      <span class="pillar-tag" id="pillar-3">✨ Cleanliness</span>
+    </div>
+
+    <!-- మీరు ఇచ్చిన అసలైన ఫోటో (hero.jpg) -->
+    <div class="hero-box">
+      <img 
+        src="hero.jpg" 
+        alt="Amrutha Karam" 
+        class="hero-img"
+        onerror="this.src='https://placehold.co/900x550/5C1D24/FAF6EF?text=Hero+Image'; this.onerror=null;"
+      >
+    </div>
+
+    <!-- 4. ఉత్పత్తుల శీర్షిక -->
+    <div class="section-title-wrap">
+      <span id="badge-category" class="cat-badge">Traditional Homemade Sweets</span>
+      <h3 id="txt-products-heading" class="main-heading">Our Fresh Offerings</h3>
+    </div>
+
+    <!-- PRODUCT 1: మినప సున్నుండలు -->
+    <div class="product-card">
+      <div class="prod-header">
+        <div>
+          <h4 id="p1-title" class="prod-title">Traditional Minapa Sunnundalu</h4>
+          <p id="p1-sub" class="prod-sub">Whole Urad Dal, Pure Ghee & Jaggery</p>
+        </div>
+        <div class="price-box">
+          <div class="price-val num">₹700</div>
+          <div id="p1-pack" class="price-unit">1 KG Pack</div>
+        </div>
+      </div>
+
+      <div id="p1-desc" class="desc-box">
+        Pure whole black gram, natural sugarcane jaggery, pure cow ghee.
+      </div>
+
+      <div class="size-picker">
+        <div>
+          <span id="lbl-pack1" class="size-lbl">Package Size:</span>
+          <span class="size-val">1 KG Box</span>
+        </div>
+        
+        <div class="qty-counter">
+          <button onclick="changeQty('sunnundalu', -1)" class="qty-btn">-</button>
+          <span id="qty-sunnundalu" class="qty-num num">0</span>
+          <button onclick="changeQty('sunnundalu', 1)" class="qty-btn">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT 2: నల్ల నువ్వుల లడ్డు -->
+    <div class="product-card">
+      <div class="prod-header">
+        <div>
+          <h4 id="p2-title" class="prod-title">Black Sesame Laddus (Chimmili)</h4>
+          <p id="p2-sub" class="prod-sub">Rich in Calcium & Natural Iron</p>
+        </div>
+        <div class="price-box">
+          <div class="price-val num">₹700</div>
+          <div id="p2-pack" class="price-unit">1 KG Pack</div>
+        </div>
+      </div>
+
+      <div id="p2-desc" class="desc-box">
+        Pure black sesame seeds, natural sugarcane jaggery.
+      </div>
+
+      <div class="size-picker">
+        <div>
+          <span id="lbl-pack2" class="size-lbl">Package Size:</span>
+          <span class="size-val">1 KG Box</span>
+        </div>
+        <div class="qty-counter">
+          <button onclick="changeQty('nuvvulu', -1)" class="qty-btn">-</button>
+          <span id="qty-nuvvulu" class="qty-num num">0</span>
+          <button onclick="changeQty('nuvvulu', 1)" class="qty-btn">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT 3: రాయల్ డ్రై ఫ్రూట్ లడ్డు -->
+    <div class="product-card">
+      <div class="prod-header">
+        <div>
+          <h4 id="p3-title" class="prod-title">Royal Dry Fruit Laddu</h4>
+          <p id="p3-sub" class="prod-sub">Naturally Sweetened, Zero Added Sugar</p>
+        </div>
+        <div class="price-box">
+          <div class="price-val num">₹700</div>
+          <div id="p3-pack" class="price-unit">1 KG Pack</div>
+        </div>
+      </div>
+
+      <div id="p3-desc" class="desc-box">
+        Almonds, cashews, pistachios, figs, and premium dates (zero white sugar).
+      </div>
+
+      <div class="size-picker">
+        <div>
+          <span id="lbl-pack3" class="size-lbl">Package Size:</span>
+          <span class="size-val">1 KG Box</span>
+        </div>
+        <div class="qty-counter">
+          <button onclick="changeQty('dryfruit', -1)" class="qty-btn">-</button>
+          <span id="qty-dryfruit" class="qty-num num">0</span>
+          <button onclick="changeQty('dryfruit', 1)" class="qty-btn">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. మొత్తం ఆర్డర్ సమ్మరీ & ఒకే వాట్సాప్ బటన్ -->
+    <div class="summary-card">
+      <div class="summary-row">
+        <span id="lbl-summary-title" style="font-weight: 700; color: #4B5563;">Total Weight:</span>
+        <span id="txt-summary-qty" class="num" style="font-weight: 900; color: #5C1D24; font-size: 16px;">0 KG</span>
+      </div>
+      <div class="summary-grand">
+        <span id="lbl-summary-total">Total Amount:</span>
+        <span id="txt-summary-total" class="grand-total-val num">₹0</span>
+      </div>
+
+      <!-- బటన్: జత 2 మాటలు -->
+      <button onclick="orderAllViaWhatsApp()" class="btn-wa-order">
+        <span id="btn-wa-text">💬 Complete Order via WhatsApp</span>
+      </button>
+    </div>
+
+    <!-- 6. బ్రాండ్ కథనం: సహజ అలైన్‌మెంట్‌తో -->
+    <div class="story-card">
+      <span id="badge-story" class="cat-badge">Our Story</span>
+      <h3 id="story-heading" class="main-heading" style="font-size: 21px; margin-bottom: 12px;">
+        A Sweet Taste of Tradition
+      </h3>
+      
+      <div id="story-body" class="story-body">
+        <p>Every home cherishes a mother's special touch in her cooking—a taste filled with pure love, warmth, and generations of cherished tradition.</p>
+        <p>Amrutha Karam was born from this heartfelt vision to bring that authentic, nostalgic experience to today's generation.</p>
+        <p>Our mission is to bring the authentic taste of our ancestors' traditional sweets, along with the love and cultural uniqueness behind them, right to your home.</p>
+        <p>In every offering, our commitment is to honor tradition, prioritize pure ingredients, and uphold uncompromising cleanliness.</p>
+        <div class="story-quote">
+          "Amrutha Karam is not merely a sweet brand. It is a sweet remembrance of our mothers' loving touch, an effort to preserve timeless traditions, and an empowering platform for skilled rural women supporting their families."
+        </div>
+        <p>With every bite, we wish to bring you the sweetness of our culture and unforgettable heartfelt memories.</p>
+        <p style="font-weight: 900; color: #5C1D24; font-size: 15px; margin-top: 8px;">
+          Amrutha Karam — An affectionate journey bringing our sweet traditions to your home.
+        </p>
+      </div>
+    </div>
+
+  </div> <!-- /container -->
+
+  <!-- 7. ఫూటర్: సన్నని ఎత్తుతో (TM లేదు) -->
+  <footer class="footer">
+    <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 4px;">
+      <h5 id="footer-brand" class="footer-brand">Amrutha Karam</h5>
+    </div>
+    <p id="footer-pillars" class="footer-text" style="font-weight: 700;">Purity • Naturalness • Cleanliness</p>
+    <p id="footer-location" class="footer-text">
+      📍 Address: <strong>Nellore, Andhra Pradesh, India</strong>
+    </p>
+    <p class="footer-copy">
+      © 2026 Amrutha Karam. All rights reserved. FSSAI registration in process.
+    </p>
+  </footer>
+
+  <!-- 8. స్క్రీన్ పై తేలియాడే రెండు బటన్లు -->
+  
+  <!-- ఎడమవైపు కింద: అఫీషియల్ WhatsApp ఒరిజినల్ వెక్టర్ లోగో -->
+  <a 
+    href="https://wa.me/917386456777" 
+    target="_blank" 
+    title="Chat on WhatsApp"
+    class="floating-wa-btn"
+  >
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.67 12.05 3.67ZM8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.02 8.48 7.02 9.69C7.02 10.9 7.9 12.07 8.02 12.23C8.15 12.39 9.74 14.84 12.19 15.9C12.78 16.15 13.23 16.3 13.59 16.41C14.18 16.6 14.71 16.57 15.14 16.51C15.61 16.44 16.6 15.91 16.81 15.33C17.02 14.74 17.02 14.24 16.96 14.14C16.9 14.04 16.74 13.98 16.5 13.86C16.27 13.74 15.13 13.18 14.92 13.1C14.71 13.02 14.55 12.98 14.4 13.21C14.24 13.44 13.79 13.98 13.65 14.14C13.52 14.3 13.38 14.32 13.15 14.2C12.92 14.08 11.95 13.76 10.8 12.74C9.9 11.94 9.29 10.95 9.17 10.75C9.06 10.55 9.16 10.44 9.27 10.33C9.38 10.23 9.51 10.05 9.63 9.91C9.75 9.77 9.79 9.67 9.87 9.51C9.95 9.35 9.91 9.21 9.85 9.09C9.79 8.97 9.34 7.86 9.15 7.41C8.97 6.96 8.78 7.03 8.64 7.02C8.51 7.02 8.35 7.02 8.19 7.02L8.53 7.33Z"/>
+    </svg>
+  </a>
+
+  <!-- కుడివైపు కింద: లాంగ్వేజ్ స్విచ్చర్ ఫ్లోటింగ్ బటన్ -->
+  <div class="floating-lang-bar">
+    <span style="font-size: 11px; padding: 0 4px; user-select: none;">🌐</span>
+    <button id="btn-te" onclick="setLanguage('te')" class="lang-btn">తెలుగు</button>
+    <button id="btn-en" onclick="setLanguage('en')" class="lang-btn lang-active">English</button>
+  </div>
+
+  <!-- జావాస్క్రిప్ట్ లాజిక్ -->
+  <script>
+    let currentLang = 'en'; // డిఫాల్ట్‌గా English
+    const quantities = { sunnundalu: 0, nuvvulu: 0, dryfruit: 0 };
+    const pricePerKg = 700;
+    const whatsappPhone = "917386456777";
+
+    const content = {
+      te: {
+        brandname: "అమృత కరం",
+        topbar: "⚡ మీ ఆర్డర్ వచ్చిన తర్వాతే తాజా తయారీ — 12 గంటల్లో డిస్పాచ్!",
+        tagline: "తరతరాల సంప్రదాయానికి తీపి గుర్తు",
+        pillar1: "🌿 స్వచ్ఛత",
+        pillar2: "🌾 సహజత",
+        pillar3: "✨ శుభ్రత",
+        badgeCategory: "సాంప్రదాయ పిండివంటలు",
+        productsHeading: "మా తాజా పదార్థాలు",
+        packLabel: "ప్యాకింగ్ పరిమాణం:",
+        packUnit: "1 కేజీ ప్యాక్",
+        p1Title: "సాంప్రదాయ మినప సున్నుండలు",
+        p1Sub: "Traditional Minapa Sunnundalu",
+        p1Desc: "స్వచ్ఛమైన మినుములు, స్వచ్ఛమైన చెరకు బెల్లం, స్వచ్ఛమైన నెయ్యి.",
+        p2Title: "నల్ల నువ్వుల లడ్డు (చిమ్మిలి)",
+        p2Sub: "Handcrafted Black Sesame Laddus",
+        p2Desc: "స్వచ్ఛమైన నల్ల నువ్వులు, స్వచ్ఛమైన చెరకు బెల్లం.",
+        p3Title: "రాయల్ డ్రై ఫ్రూట్ లడ్డు",
+        p3Sub: "Dates & Premium Nuts Laddu",
+        p3Desc: "బాదం, జీడిపప్పు, పిస్తా, అంజీర మరియు ప్రీమియం ఖర్జూరం మేళవింపు (చక్కెర లేనిది).",
+        summaryTitle: "మొత్తం బరువు:",
+        summaryTotal: "మొత్తం బిల్లు:",
+        waBtnText: "💬 WhatsApp ద్వారా ఆర్డర్ పూర్తి చేయండి",
+        badgeStory: "మా కథనం",
+        storyHeading: "తరతరాల సంప్రదాయానికి తీపి గుర్తు",
+        storyBodyHtml: `
+          <p>ప్రతి ఇంట్లో అమ్మ చేతి వంటకు ఒక ప్రత్యేకమైన రుచి ఉంటుంది. ఆ రుచిలో ప్రేమ ఉంటుంది, ఆప్యాయత ఉంటుంది, తరతరాలుగా మన కుటుంబాల్లో కొనసాగుతున్న సంప్రదాయం ఉంటుంది.</p>
+          <p>ఆ మధురమైన అనుభూతిని నేటి తరానికి కూడా అందించాలనే ఆలోచనతో పుట్టిందే <strong>అమృత కరం</strong>.</p>
+          <p>మన పూర్వీకుల నుంచి వస్తున్న సంప్రదాయ మిఠాయిల రుచిని, వాటి వెనుక ఉన్న ఆప్యాయతను, మన సంస్కృతిలోని ప్రత్యేకతను మీ ఇంటికి చేరవేయడమే మా లక్ష్యం.</p>
+          <p>ప్రతి ఉత్పత్తిలో సంప్రదాయానికి గౌరవం, పదార్థాల నాణ్యతకు ప్రాధాన్యం, తయారీలో శుభ్రతకు నిబద్ధత ఉండాలనేది మా లక్ష్యం.</p>
+          <div class="story-quote">
+            "అమృత కరం అనేది కేవలం ఒక మిఠాయి బ్రాండ్ మాత్రమే కాదు. ఇది మన అమ్మల చేతి రుచికి గుర్తు. మన సంప్రదాయాలను కాపాడే ఒక చిన్న ప్రయత్నం. తమ చేతివృత్తి, నైపుణ్యంతో కుటుంబాలకు అండగా నిలిచే గ్రామీణ మహిళల కృషికి ఒక వేదిక."
+          </div>
+          <p>ప్రతి పదార్థంతో మన సంప్రదాయం, మనసుకు దగ్గరైన మధురమైన జ్ఞాపకాలు మీకు అందాలని మేము కోరుకుంటున్నాం.</p>
+          <p style="font-weight: 900; color: #5C1D24; font-size: 15px; margin-top: 8px;">అమృత కరం — మన సంప్రదాయపు తీపిని మీ ఇంటికి చేరవేసే ఒక ఆత్మీయ ప్రయాణం.</p>
+        `,
+        footerBrand: "అమృత కరం",
+        footerPillars: "స్వచ్ఛత • సహజత • శుభ్రత",
+        footerLocation: "📍 చిరునామా: <strong>నెల్లూరు, ఆంధ్రప్రదేశ్, భారత్</strong>"
+      },
+      en: {
+        brandname: "Amrutha Karam",
+        topbar: "⚡ Prepared fresh only after your order — Dispatched in 12 hours!",
+        tagline: "A Sweet Taste of Tradition",
+        pillar1: "🌿 Purity",
+        pillar2: "🌾 Natural",
+        pillar3: "✨ Cleanliness",
+        badgeCategory: "Traditional Homemade Sweets",
+        productsHeading: "Our Fresh Offerings",
+        packLabel: "Package Size:",
+        packUnit: "1 KG Pack",
+        p1Title: "Traditional Minapa Sunnundalu",
+        p1Sub: "Whole Urad Dal, Pure Ghee & Jaggery",
+        p1Desc: "Pure whole black gram, natural sugarcane jaggery, pure cow ghee.",
+        p2Title: "Black Sesame Laddus (Chimmili)",
+        p2Sub: "Rich in Calcium & Natural Iron",
+        p2Desc: "Pure black sesame seeds, natural sugarcane jaggery.",
+        p3Title: "Royal Dry Fruit Laddu",
+        p3Sub: "Naturally Sweetened, Zero Added Sugar",
+        p3Desc: "Almonds, cashews, pistachios, figs, and premium dates (zero white sugar).",
+        summaryTitle: "Total Weight:",
+        summaryTotal: "Total Amount:",
+        waBtnText: "💬 Complete Order via WhatsApp",
+        badgeStory: "Our Story",
+        storyHeading: "A Sweet Taste of Tradition",
+        storyBodyHtml: `
+          <p>Every home cherishes a mother's special touch in her cooking—a taste filled with pure love, warmth, and generations of cherished tradition.</p>
+          <p>Amrutha Karam was born from this heartfelt vision to bring that authentic, nostalgic experience to today's generation.</p>
+          <p>Our mission is to bring the authentic taste of our ancestors' traditional sweets, along with the love and cultural uniqueness behind them, right to your home.</p>
+          <p>In every offering, our commitment is to honor tradition, prioritize pure ingredients, and uphold uncompromising cleanliness.</p>
+          <div class="story-quote">
+            "Amrutha Karam is not merely a sweet brand. It is a sweet remembrance of our mothers' loving touch, an effort to preserve timeless traditions, and an empowering platform for skilled rural women supporting their families."
+          </div>
+          <p>With every bite, we wish to bring you the sweetness of our culture and unforgettable heartfelt memories.</p>
+          <p style="font-weight: 900; color: #5C1D24; font-size: 15px; margin-top: 8px;">Amrutha Karam — An affectionate journey bringing our sweet traditions to your home.</p>
+        `,
+        footerBrand: "Amrutha Karam",
+        footerPillars: "Purity • Naturalness • Cleanliness",
+        footerLocation: "📍 Address: <strong>Nellore, Andhra Pradesh, India</strong>"
+      }
+    };
+
+    function updateGrandTotal() {
+      const totalQty = quantities.sunnundalu + quantities.nuvvulu + quantities.dryfruit;
+      const grandTotal = totalQty * pricePerKg;
+      
+      const qtyUnit = currentLang === 'te' ? " కేజీ" : " KG";
+      document.getElementById('txt-summary-qty').innerText = `${totalQty}${qtyUnit}`;
+      document.getElementById('txt-summary-total').innerText = `₹${grandTotal.toLocaleString('en-IN')}`;
+    }
+
+    function changeQty(productKey, delta) {
+      quantities[productKey] = Math.max(0, quantities[productKey] + delta);
+      document.getElementById(`qty-${productKey}`).innerText = quantities[productKey];
+      updateGrandTotal();
+    }
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      
+      if (lang === 'te') {
+        document.getElementById('btn-te').className = "lang-btn lang-active";
+        document.getElementById('btn-en').className = "lang-btn";
+      } else {
+        document.getElementById('btn-en').className = "lang-btn lang-active";
+        document.getElementById('btn-te').className = "lang-btn";
+      }
+
+      const t = content[lang];
+      document.getElementById('txt-brandname').innerText = t.brandname;
+      document.getElementById('txt-topbar').innerText = t.topbar;
+      document.getElementById('txt-tagline').innerText = t.tagline;
+      document.getElementById('pillar-1').innerText = t.pillar1;
+      document.getElementById('pillar-2').innerText = t.pillar2;
+      document.getElementById('pillar-3').innerText = t.pillar3;
+      document.getElementById('badge-category').innerText = t.badgeCategory;
+      document.getElementById('txt-products-heading').innerText = t.productsHeading;
+
+      document.getElementById('p1-title').innerText = t.p1Title;
+      document.getElementById('p1-sub').innerText = t.p1Sub;
+      document.getElementById('p1-desc').innerText = t.p1Desc;
+      document.getElementById('p1-pack').innerText = t.packUnit;
+
+      document.getElementById('p2-title').innerText = t.p2Title;
+      document.getElementById('p2-sub').innerText = t.p2Sub;
+      document.getElementById('p2-desc').innerText = t.p2Desc;
+      document.getElementById('p2-pack').innerText = t.packUnit;
+
+      document.getElementById('p3-title').innerText = t.p3Title;
+      document.getElementById('p3-sub').innerText = t.p3Sub;
+      document.getElementById('p3-desc').innerText = t.p3Desc;
+      document.getElementById('p3-pack').innerText = t.packUnit;
+
+      document.getElementById('lbl-pack1').innerText = t.packLabel;
+      document.getElementById('lbl-pack2').innerText = t.packLabel;
+      document.getElementById('lbl-pack3').innerText = t.packLabel;
+
+      document.getElementById('lbl-summary-title').innerText = t.summaryTitle;
+      document.getElementById('lbl-summary-total').innerText = t.summaryTotal;
+      document.getElementById('btn-wa-text').innerText = t.waBtnText;
+
+      document.getElementById('badge-story').innerText = t.badgeStory;
+      document.getElementById('story-heading').innerText = t.storyHeading;
+      document.getElementById('story-body').innerHTML = t.storyBodyHtml;
+
+      document.getElementById('footer-brand').innerText = t.footerBrand;
+      document.getElementById('footer-pillars').innerText = t.footerPillars;
+      document.getElementById('footer-location').innerHTML = t.footerLocation;
+
+      updateGrandTotal();
+    }
+
+    function orderAllViaWhatsApp() {
+      const totalQty = quantities.sunnundalu + quantities.nuvvulu + quantities.dryfruit;
+      if (totalQty === 0) {
+        alert(currentLang === 'te' ? 'దయచేసి కనీసం 1 డబ్బాను ఎంచుకోండి!' : 'Please select at least 1 box to order!');
+        return;
+      }
+
+      const grandTotal = totalQty * pricePerKg;
+      let orderItemsText = "";
+
+      if (currentLang === 'te') {
+        if (quantities.sunnundalu > 0) orderItemsText += `• సాంప్రదాయ మినప సున్నుండలు: ${quantities.sunnundalu} కేజీ\n`;
+        if (quantities.nuvvulu > 0) orderItemsText += `• నల్ల నువ్వుల లడ్డు: ${quantities.nuvvulu} కేజీ\n`;
+        if (quantities.dryfruit > 0) orderItemsText += `• రాయల్ డ్రై ఫ్రూట్ లడ్డు: ${quantities.dryfruit} కేజీ\n`;
+
+        const message = encodeURIComponent(
+          `నమస్కారం అమృత కరం! నేను వెబ్‌సైట్ ద్వారా ఆర్డర్ చేయాలనుకుంటున్నాను:\n\n` +
+          `📦 ఎంచుకున్న పదార్థాలు:\n${orderItemsText}\n` +
+          `⚖️ మొత్తం బరువు: ${totalQty} కేజీ(లు)\n` +
+          `💰 మొత్తం బిల్లు: ₹${grandTotal.toLocaleString('en-IN')}\n\n` +
+          `దయచేసి నా ఆర్డర్ కన్ఫర్మ్ చేసి మీ చెల్లింపు వివరాలు మరియు డెలివరీ సమాచారం పంపగలరు.`
+        );
+        window.open(`https://wa.me/${whatsappPhone}?text=${message}`, '_blank');
+      } else {
+        if (quantities.sunnundalu > 0) orderItemsText += `• Traditional Minapa Sunnundalu: ${quantities.sunnundalu} KG\n`;
+        if (quantities.nuvvulu > 0) orderItemsText += `• Black Sesame Laddus: ${quantities.nuvvulu} KG\n`;
+        if (quantities.dryfruit > 0) orderItemsText += `• Royal Dry Fruit Laddu: ${quantities.dryfruit} KG\n`;
+
+        const message = encodeURIComponent(
+          `Hello Amrutha Karam! I would like to place an order from your website:\n\n` +
+          `📦 Selected Offerings:\n${orderItemsText}\n` +
+          `⚖️ Total Weight: ${totalQty} KG(s)\n` +
+          `💰 Grand Total: ₹${grandTotal.toLocaleString('en-IN')}\n\n` +
+          `Please confirm my order and share your payment and delivery details.`
+        );
+        window.open(`https://wa.me/${whatsappPhone}?text=${message}`, '_blank');
+      }
+    }
+
+    updateGrandTotal();
+  </script>
+</body>
+</html>
